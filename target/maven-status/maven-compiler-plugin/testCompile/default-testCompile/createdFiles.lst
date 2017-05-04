@@ -1,0 +1,5 @@
+com/shuman/utils/UrlVerifierImplTest.class
+com/shuman/impl/HttpServiceImplTest.class
+com/shuman/impl/WordCounterImplTest.class
+com/shuman/impl/CrawlerServiceImplTest.class
+com/shuman/CrawlerApplicationTests.class
