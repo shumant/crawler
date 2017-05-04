@@ -98,6 +98,11 @@ public class CrawlerServiceImpl implements CrawlerService, CrawlerEntryPoint {
 
             executor.shutdown();
 
+            if (finalWords.isEmpty()) {
+                log.error("There are no words found! Please visit entered url - it might be invalid");
+                System.exit(1);
+            }
+
             Map<String, Integer> result = finalWords.entrySet()
                     .stream()
                     .sorted(Map.Entry.comparingByValue(Collections.reverseOrder()))
@@ -110,9 +115,12 @@ public class CrawlerServiceImpl implements CrawlerService, CrawlerEntryPoint {
                     ));
 
             log.info("Crawling completed!");
+            log.info("===============================================");
+            log.info("WORDS COUNT:");
             result.forEach((key, value) -> {
                 System.out.println(String.format("%s - %d раз(а)", key, value));
             });
+            log.info("===============================================");
 
         }
     }
